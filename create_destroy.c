@@ -13,7 +13,7 @@ void	create_philo(t_info *p)
 		if (pthread_create(&(p->philosopher[i].thread), NULL, routine_philo,
 				&p->philosopher[i]))
 		{
-			ft_exit("no\n");
+			ft_exit("Error during create philo");
 		}
 		p->philosopher[i].last_meal = p->start_time;
 	}

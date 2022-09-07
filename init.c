@@ -27,3 +27,17 @@ void	philo_init(void)
 	if(!p->m_forks)
 		ft_exit("Erreur de malloc des forks");
 }
+
+void init_mutex(t_info *p)
+{
+	int i;
+
+	i = p->nop;
+	while(--i >= 0)
+	{
+		if(pthread_mutex_init(&(p->m_forks[i]), NULL))
+			ft_exit("mutex init forks fail");
+	}
+	if(pthread_mutex_init(&(p->m_print), NULL))
+		ft_exit("mutex init print fail");
+}

@@ -35,3 +35,22 @@ void ft_exit(char *str)
 	printf("%s\n",str);
 	exit(0);
 }
+
+void print_wMutex(t_philo *p, int id, char *str)
+{
+	pthread_mutex_lock(&(p->info->m_print));
+	if(p->info->status != 1)
+	{
+		printf(" %lli %i ", get_time() - p->info->start_time,id+1);
+		printf("%s\n", str);
+	}
+	pthread_mutex_unlock(&(p->info->m_print));
+}
+
+long long	get_time(void)
+{
+	struct timeval	t;
+
+	gettimeofday(&t, 0);
+	return ((t.tv_sec * 1000) + (t.tv_usec / 1000));
+}

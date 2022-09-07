@@ -3,7 +3,9 @@ NAME		=	philo
 FIL_M		=	main.c \
 				utils.c \
 				parsing.c \
-				init.c
+				init.c \
+				create_destroy.c \
+				routine_philo.c
 
 OBJ_M		=	$(FIL_M:.c=.o)
 

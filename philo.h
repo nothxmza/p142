@@ -38,7 +38,7 @@ typedef struct s_info
 int			ft_atoi(const char *str);
 int			ft_isalnum(int c);
 void		ft_exit(char *str);
-void 		print_wMutex(t_philo *p, int id, char *str);
+void 		print_wMutex(t_philo *p, char *str);
 long long	get_time(void);
 
 //INIT
@@ -57,6 +57,6 @@ void eat(t_philo *p);
 
 //CREATE DESTROY
 void	create_philo(t_info *p);
-void destroys(t_info *info, t_philo *m);
+void destroy(t_info *info, t_philo *m);
 
 #endif

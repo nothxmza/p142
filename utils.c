@@ -36,13 +36,12 @@ void ft_exit(char *str)
 	exit(0);
 }
 
-void print_wMutex(t_philo *p, int id, char *str)
+void print_wMutex(t_philo *p, char *str)
 {
 	pthread_mutex_lock(&(p->info->m_print));
 	if(p->info->status != 1)
 	{
-		printf(" %lli %i ", get_time() - p->info->start_time,id+1);
-		printf("%s\n", str);
+		printf(" %lli %i %s\n", get_time() - p->info->start_time,p->id+1,str);
 	}
 	pthread_mutex_unlock(&(p->info->m_print));
 }

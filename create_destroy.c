@@ -13,17 +13,17 @@ void	create_philo(t_info *p)
 		if (pthread_create(&(p->philosopher[i].thread), NULL, routine_philo,
 				&p->philosopher[i]))
 		{
-			ft_exit("Error during create philo");
+			ft_exit("Create philo fail");
 		}
 		p->philosopher[i].last_meal = p->start_time;
 	}
 	i = -1;
 	while(++i < p->nop)
 		pthread_join(p->philosopher[i].thread, NULL);
-	destroys(p, p->philosopher);
+	destroy(p, p->philosopher);
 }
 
-void destroys(t_info *info, t_philo *m)
+void destroy(t_info *info, t_philo *m)
 {
 	int i;
 

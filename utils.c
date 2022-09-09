@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/09 14:21:28 by hterras           #+#    #+#             */
+/*   Updated: 2022/09/09 14:24:39 by hterras          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned int	num;
 	int				i;
@@ -9,7 +21,7 @@ int		ft_atoi(const char *str)
 	np = 1;
 	i = 0;
 	num = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\f' ||
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\f' || \
 			str[i] == '\r' || str[i] == '\n' || str[i] == '\v')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -30,20 +42,18 @@ int	ft_isalnum(int c)
 	return (0);
 }
 
-void ft_exit(char *str)
+void	ft_exit(char *str)
 {
-	printf("%s\n",str);
+	printf("%s\n", str);
 	exit(0);
 }
 
-void print_wMutex(t_philo *p, int id, char *str)
+void	print_wmutex(t_philo *p, char *str)
 {
 	pthread_mutex_lock(&(p->info->m_print));
-	if(p->info->status != 1)
-	{
-		printf(" %lli %i ", get_time() - p->info->start_time,id+1);
-		printf("%s\n", str);
-	}
+	if (p->info->status != 1)
+		printf(" %lli %i %s\n", \
+			get_time() - p->info->start_time, p->id + 1, str);
 	pthread_mutex_unlock(&(p->info->m_print));
 }
 

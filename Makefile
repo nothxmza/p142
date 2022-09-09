@@ -10,7 +10,7 @@ FIL_M		=	main.c \
 OBJ_M		=	$(FIL_M:.c=.o)
 
 CC			=	gcc
-CFLAG		=	
+CFLAG		=	-Wall -Wextra -Werror
 RM			=	rm -f
 MAKE		=	make
 

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/09 14:20:14 by hterras           #+#    #+#             */
+/*   Updated: 2022/09/09 15:08:57 by hterras          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
-int main(int argc,char **argv)
+int	main(int argc, char **argv)
 {
-	t_info *philo = NULL;
+	t_info	*philo;
 
 	if (argc == 5 || argc == 6)
 	{
@@ -11,7 +23,6 @@ int main(int argc,char **argv)
 		philo_init();
 		init_mutex(philo);
 		create_philo(philo);
-		//printf("nop:%d  ttd:%d  tte:%d  tts:%d  nte:%d\n",philo->nop,philo->ttd,philo->tte, philo->tts, philo->nte);
 	}
 	else
 		printf("error: number of argument");

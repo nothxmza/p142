@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/09 14:42:29 by hterras           #+#    #+#             */
+/*   Updated: 2022/09/09 15:01:26 by hterras          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 t_info	*info_init(void)
@@ -16,7 +28,7 @@ t_info	*info_init(void)
 
 void	philo_init(void)
 {
-	 t_info	*p;
+	t_info	*p;
 
 	p = info_init();
 	p->philosopher = (t_philo *)malloc(sizeof(t_philo) * p->nop);
@@ -24,20 +36,22 @@ void	philo_init(void)
 	if (!p->philosopher)
 		ft_exit("Erreur de malloc du philo");
 	p->m_forks = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * p->nop);
-	if(!p->m_forks)
+	if (!p->m_forks)
 		ft_exit("Erreur de malloc des forks");
 }
 
-void init_mutex(t_info *p)
+void	init_mutex(t_info *p)
 {
-	int i;
+	int	i;
 
 	i = p->nop;
-	while(--i >= 0)
+	while (--i >= 0)
 	{
-		if(pthread_mutex_init(&(p->m_forks[i]), NULL))
+		if (pthread_mutex_init(&(p->m_forks[i]), NULL))
 			ft_exit("mutex init forks fail");
 	}
-	if(pthread_mutex_init(&(p->m_print), NULL))
+	if (pthread_mutex_init(&(p->m_print), NULL))
+		ft_exit("mutex init print fail");
+	if (pthread_mutex_init(&(p->m_eat), NULL))
 		ft_exit("mutex init print fail");
 }

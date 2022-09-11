@@ -6,7 +6,7 @@
 /*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:21:28 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/09 16:29:19 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/11 18:19:45 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,21 @@ void	print_wmutex(t_philo *p, char *str)
 		printf(" %lli %i %s\n", \
 			get_time() - p->info->start_time, p->id + 1, str);
 	pthread_mutex_unlock(&(p->info->m_print));
+}
+
+void	usleep2(t_info *m, long long time)
+{
+	long long	start_time;
+	//long long	x;
+	start_time = get_time();
+	while (!m->status)
+	{
+		/*x = get_time() - start_time;
+		printf("T %lld  -   %lld :(%lld)\n",get_time(),start_time,x);*/
+		if (get_time() - start_time >= time)
+			break ;
+		usleep(100);
+	}
 }
 
 long long	get_time(void)

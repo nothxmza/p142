@@ -6,7 +6,7 @@
 /*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:38:39 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/09 16:29:41 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/11 18:19:31 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	eat(t_philo *p)
 	p->meal++;
 	p->last_meal = get_time();
 	pthread_mutex_unlock(&(p->info->m_eat));
-	usleep(p->info->tte * 1000);
+	usleep2(p->info, p->info->tte);
 	pthread_mutex_unlock(&(p->info->m_forks[p->id]));
 	pthread_mutex_unlock(&(p->info->m_forks[p->id + 1]));
 }
@@ -72,12 +72,12 @@ void	*routine_philo(void *p)
 		philo->info->status = 1;
 	}
 	if (philo->id % 2 == 0)
-		usleep(1000);
+		usleep(10000);
 	while (philo->info->status != 1)
 	{
 		eat(philo);
 		print_wmutex(philo, "is sleeping");
-		usleep(philo->info->tts * 1000);
+		usleep2(philo->info, philo->info->tts);
 		print_wmutex(philo, "is thinking");
 	}
 	return (0);

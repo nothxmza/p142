@@ -6,7 +6,7 @@
 /*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:42:12 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/09 16:29:49 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/11 16:25:16 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int			ft_isalnum(int c);
 void		ft_exit(char *str);
 void		print_wmutex(t_philo *p, char *str);
 long long	get_time(void);
+void		usleep2(t_info *m, long long time);
 
 //INIT
 void		philo_init(void);

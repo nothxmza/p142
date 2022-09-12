@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:21:28 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/11 18:19:45 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/12 14:10:12 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,33 @@ void	print_wmutex(t_philo *p, char *str)
 	pthread_mutex_unlock(&(p->info->m_print));
 }
 
-void	usleep2(t_info *m, long long time)
+void	usleep2(t_info *p, long long time)
+{
+	long long	start_time;
+	start_time = get_time();
+	
+		while ((get_time() - start_time) < time)
+		{
+			if(p->status == 1)
+				break;
+			usleep(100);
+		}
+}
+
+/*void	usleep2(t_info *m, long long time)
 {
 	long long	start_time;
 	//long long	x;
 	start_time = get_time();
 	while (!m->status)
 	{
-		/*x = get_time() - start_time;
-		printf("T %lld  -   %lld :(%lld)\n",get_time(),start_time,x);*/
+		x = get_time() - start_time;
+		printf("T %lld  -   %lld :(%lld)\n",get_time(),start_time,x);
 		if (get_time() - start_time >= time)
 			break ;
 		usleep(100);
 	}
-}
+}*/
 
 long long	get_time(void)
 {

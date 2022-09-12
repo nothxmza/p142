@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine_philo.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:38:39 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/11 18:19:31 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/12 13:56:55 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	*routine_philo(void *p)
 		philo->info->status = 1;
 	}
 	if (philo->id % 2 == 0)
-		usleep(10000);
+		usleep(1000);
 	while (philo->info->status != 1)
 	{
 		eat(philo);

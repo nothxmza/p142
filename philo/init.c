@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:42:29 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/09 15:01:26 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/16 18:00:09 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ void	philo_init(void)
 	t_info	*p;
 
 	p = info_init();
-	p->philosopher = (t_philo *)malloc(sizeof(t_philo) * p->nop);
+	p->philosopher = (malloc(sizeof(t_philo) * p->nop);
 	memset(p->philosopher, 0, sizeof(t_info));
 	if (!p->philosopher)
 		ft_exit("Erreur de malloc du philo");
-	p->m_forks = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * p->nop);
+	p->m_forks = malloc(sizeof(pthread_mutex_t) * p->nop);
 	if (!p->m_forks)
 		ft_exit("Erreur de malloc des forks");
 }

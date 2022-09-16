@@ -2,6 +2,7 @@ NAME		=	philo
 
 FIL_M		=	main.c \
 				utils.c \
+				utils2.c \
 				parsing.c \
 				init.c \
 				create_destroy.c \

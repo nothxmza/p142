@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:19:02 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/16 17:45:55 by hamza            ###   ########.fr       */
+/*   Updated: 2022/09/20 14:22:06 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_check(int argc, char **argv, t_info *philo)
+int	ft_check(int argc, char **argv, t_info *philo)
 {
-	ft_check_num(argv);
+	int	i;
+
+	i = ft_check_num(argv);
 	if (argc == 5)
 	{
 		philo->nop = ft_atoi(argv[1]);
@@ -30,10 +32,11 @@ void	ft_check(int argc, char **argv, t_info *philo)
 		philo->tts = ft_atoi(argv[4]);
 		philo->nte = ft_atoi(argv[5]);
 	}
-	ft_check_nbr(philo);
+	i = ft_check_nbr(philo);
+	return (i);
 }
 
-void	ft_check_num(char	**argv)
+int	ft_check_num(char	**argv)
 {
 	int	i;
 	int	j;
@@ -47,21 +50,23 @@ void	ft_check_num(char	**argv)
 			if (!ft_isalnum(argv[i][j]))
 			{
 				printf("error: not only digit");
-				exit(1);
+				return (0);
 			}
 			j++;
 		}
 		j = 0;
 		i++;
 	}
+	return (1);
 }
 
-void	ft_check_nbr(t_info *philo)
+int	ft_check_nbr(t_info *philo)
 {
 	if (philo->nop < 1 || philo->nop > 200 || philo->ttd < 60 || \
 		philo->tte < 60 || philo->tts < 60 || philo->nte < 0)
 	{
 		printf("error: valeur incorrect");
-		exit(1);
+		return (0);
 	}
+	return (1);
 }

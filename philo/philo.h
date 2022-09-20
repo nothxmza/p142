@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:42:12 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/12 13:56:21 by hamza            ###   ########.fr       */
+/*   Updated: 2022/09/20 14:22:26 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,20 @@ typedef struct s_info
 //UTILS
 int			ft_atoi(const char *str);
 int			ft_isalnum(int c);
-void		ft_exit(char *str);
+int			ft_exit(char *str);
 void		print_wmutex(t_philo *p, char *str);
 long long	get_time(void);
 void		usleep2(t_info *p, long long time);
 
 //INIT
-void		philo_init(void);
+int			philo_init(void);
 t_info		*info_init(void);
-void		init_mutex(t_info *p);
+int			init_mutex(t_info *p);
 
 //PARSING
-void		ft_check_nbr(t_info *philo);
-void		ft_check_num(char	**argv);
-void		ft_check(int argc, char **argv, t_info *philo);
+int			ft_check_nbr(t_info *philo);
+int			ft_check_num(char	**argv);
+int			ft_check(int argc, char **argv, t_info *philo);
 
 //ROUTINE
 void		*routine_philo(void *p);
@@ -71,7 +71,7 @@ void		eat(t_philo *p);
 void		dead(t_info *p);
 
 //CREATE DESTROY
-void		create_philo(t_info *p);
+int			create_philo(t_info *p);
 void		destroy(t_info *info);
 
 #endif

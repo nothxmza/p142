@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:21:28 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/16 16:25:19 by hamza            ###   ########.fr       */
+/*   Updated: 2022/09/20 12:37:33 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	ft_isalnum(int c)
 	return (0);
 }
 
-void	ft_exit(char *str)
+int	ft_exit(char *str)
 {
 	printf("%s\n", str);
-	exit(0);
+	return (0);
 }
 
 void	print_wmutex(t_philo *p, char *str)

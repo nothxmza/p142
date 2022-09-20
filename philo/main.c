@@ -6,7 +6,7 @@
 /*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:20:14 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/11 16:08:35 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/20 14:21:41 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ int	main(int argc, char **argv)
 	if (argc == 5 || argc == 6)
 	{
 		philo = info_init();
-		ft_check(argc, argv, philo);
-		philo_init();
-		init_mutex(philo);
-		create_philo(philo);
+		if (!ft_check(argc, argv, philo))
+			return (0);
+		if (!philo_init())
+			return (0);
+		if (!init_mutex(philo))
+			return (0);
+		if (!create_philo(philo))
+			return (0);
 	}
 	else
 		printf("error: number of argument");

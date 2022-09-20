@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:42:29 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/16 17:45:03 by hamza            ###   ########.fr       */
+/*   Updated: 2022/09/20 14:20:15 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_info	*info_init(void)
 	return (info);
 }
 
-void	philo_init(void)
+int	philo_init(void)
 {
 	t_info	*p;
 
@@ -38,9 +38,10 @@ void	philo_init(void)
 	p->m_forks = malloc(sizeof(pthread_mutex_t) * p->nop);
 	if (!p->m_forks)
 		ft_exit("Erreur de malloc des forks");
+	return (1);
 }
 
-void	init_mutex(t_info *p)
+int	init_mutex(t_info *p)
 {
 	int	i;
 
@@ -54,4 +55,5 @@ void	init_mutex(t_info *p)
 		ft_exit("mutex init print fail");
 	if (pthread_mutex_init(&(p->m_eat), NULL))
 		ft_exit("mutex init print fail");
+	return (1);
 }

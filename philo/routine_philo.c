@@ -6,7 +6,7 @@
 /*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:38:39 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/17 20:41:27 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/20 13:08:05 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	dead(t_info *p)
 			pthread_mutex_lock(&(p->m_eat));
 			if (get_time() - p->philosopher[i].last_meal > p->ttd)
 			{
-				print_wmutex(p->philosopher, "die");
+				print_wmutex(p->philosopher, "died");
 				p->status = 1;
 			}
 			pthread_mutex_unlock(&(p->m_eat));

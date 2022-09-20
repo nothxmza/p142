@@ -6,13 +6,13 @@
 /*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:36:40 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/17 20:43:36 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/20 14:20:07 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	create_philo(t_info *p)
+int	create_philo(t_info *p)
 {
 	int	i;
 
@@ -34,6 +34,7 @@ void	create_philo(t_info *p)
 	while (++i < p->nop)
 		pthread_join(p->philosopher[i].thread, NULL);
 	destroy(p);
+	return (0);
 }
 
 void	destroy(t_info *info)

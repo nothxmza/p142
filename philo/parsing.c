@@ -6,7 +6,7 @@
 /*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:19:02 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/20 14:22:06 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/22 13:47:23 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_check(int argc, char **argv, t_info *philo)
 	int	i;
 
 	i = ft_check_num(argv);
+	if (i == 0)
+		return (i);
 	if (argc == 5)
 	{
 		philo->nop = ft_atoi(argv[1]);
@@ -49,8 +51,7 @@ int	ft_check_num(char	**argv)
 		{
 			if (!ft_isalnum(argv[i][j]))
 			{
-				printf("error: not only digit");
-				return (0);
+				return (ft_exit("error: not only digit"));
 			}
 			j++;
 		}
@@ -65,8 +66,7 @@ int	ft_check_nbr(t_info *philo)
 	if (philo->nop < 1 || philo->nop > 200 || philo->ttd < 60 || \
 		philo->tte < 60 || philo->tts < 60 || philo->nte < 0)
 	{
-		printf("error: valeur incorrect");
-		return (0);
+		return (ft_exit("error: valeur incorrect"));
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:42:12 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/20 14:22:26 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/22 13:45:41 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ void		dead(t_info *p);
 
 //CREATE DESTROY
 int			create_philo(t_info *p);
-void		destroy(t_info *info);
+int			destroy(t_info *info);
 
 #endif

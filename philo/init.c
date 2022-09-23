@@ -6,7 +6,7 @@
 /*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:42:29 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/20 14:20:15 by hterras          ###   ########.fr       */
+/*   Updated: 2022/09/22 13:43:05 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	philo_init(void)
 	p->philosopher = malloc(sizeof(t_philo) * p->nop);
 	memset(p->philosopher, 0, sizeof(t_info));
 	if (!p->philosopher)
-		ft_exit("Erreur de malloc du philo");
+		return (ft_exit("Erreur de malloc du philo"));
 	p->m_forks = malloc(sizeof(pthread_mutex_t) * p->nop);
 	if (!p->m_forks)
-		ft_exit("Erreur de malloc des forks");
+		return (ft_exit("Erreur de malloc des forks"));
 	return (1);
 }
 
@@ -49,11 +49,11 @@ int	init_mutex(t_info *p)
 	while (--i >= 0)
 	{
 		if (pthread_mutex_init(&(p->m_forks[i]), NULL))
-			ft_exit("mutex init forks fail");
+			return (ft_exit("mutex init forks fail"));
 	}
 	if (pthread_mutex_init(&(p->m_print), NULL))
-		ft_exit("mutex init print fail");
+		return (ft_exit("mutex init print fail"));
 	if (pthread_mutex_init(&(p->m_eat), NULL))
-		ft_exit("mutex init print fail");
+		return (ft_exit("mutex init print fail"));
 	return (1);
 }

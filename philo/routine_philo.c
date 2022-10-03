@@ -6,7 +6,7 @@
 /*   By: hterras <hterras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:38:39 by hterras           #+#    #+#             */
-/*   Updated: 2022/09/20 13:08:05 by hterras          ###   ########.fr       */
+/*   Updated: 2022/10/03 13:18:08 by hterras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	*routine_philo(void *p)
 		pthread_mutex_lock(&(philo->info->m_forks[philo->id]));
 		print_wmutex(philo, "has taken a fork");
 		pthread_mutex_unlock(&(philo->info->m_forks[philo->id]));
+		usleep2(philo->info,philo->info->ttd);
 		print_wmutex(philo, "die");
 		philo->info->status = 1;
 	}
